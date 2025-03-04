@@ -13,6 +13,10 @@
         justify-content: space-between;
         align-items: center;
 
+        @media (max-width:576px) {
+            justify-content: center;
+        }
+
         .main-logo {
             width: 200px;
             height: 70px;
