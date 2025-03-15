@@ -2,22 +2,41 @@ import React, { useState, useEffect } from "react";
 import "./HomeHerobanner.scss";
 import { TypeAnimation } from "react-type-animation";
 import glowimage from "../../../assets/images/glowimage.gif";
+import Image1 from "../../../assets/images/img1.jpg";
+import Image2 from "../../../assets/images/img2.jpg";
+import Image3 from "../../../assets/images/img3.jpg";
+import Image4 from "../../../assets/images/img4.jpg";
+import Image5 from "../../../assets/images/img5.jpg";
+import Image6 from "../../../assets/images/img6.jpg";
+import Image7 from "../../../assets/images/img7.jpg";
+import Image8 from "../../../assets/images/img8.jpg";
+import Image9 from "../../../assets/images/img9.jpg";
+import Image10 from "../../../assets/images/img10.jpg";
+import Image11 from "../../../assets/images/img11.jpg";
+import Image12 from "../../../assets/images/img12.jpg";
+import Image13 from "../../../assets/images/img13.jpg";
+import Image14 from "../../../assets/images/img14.jpg";
+import Image15 from "../../../assets/images/img15.jpg";
 import axios from "axios";
+
+const images = [
+  Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8, Image9, Image10,
+  Image11, Image12, Image13, Image14, Image15
+];
 
 export default function HomeHerobanner() {
   const [currentImage, setCurrentImage] = useState(0);
   const [HomeHerosection, setHomeHerosection] = useState({
     description: "",
-    imageURL: []
   });
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImage((prevImage) => (prevImage + 1) % HomeHerosection.imageURL.length);
-    }, 5000);
+      setCurrentImage((prevImage) => (prevImage + 1) % images.length);
+    }, 3000);
 
     return () => clearInterval(interval);
-  }, [HomeHerosection.imageURL]);
+  }, []);
 
   useEffect(() => {
     axios
@@ -35,26 +54,26 @@ export default function HomeHerobanner() {
         <source src="your-video-file.webm" type="video/webm" />
         <source src="your-video-file.ogv" type="video/ogg" />
         Your browser does not support the video tag.
-        </video>
-        <div className="home-herobanner-alignment">
-          <div className="container">
-            <div className="home-herobanner-content-alignment">
-              <div className="home-herobanner-left-content">
-                <h1>
-                  {HomeHerosection.title && (
-                    <TypeAnimation
-                      sequence={[
-                        HomeHerosection.title,
-                        1000,
-                        "",
-                        1000,
-                      ]}
-                      speed={50}
-                      repeat={Infinity}
-                    />
-                  )}
-                </h1>
-                {/* <p className="business-pera">I am a business enthusiast man</p> */}
+      </video>
+      <div className="home-herobanner-alignment">
+        <div className="container">
+          <div className="home-herobanner-content-alignment">
+            <div className="home-herobanner-left-content">
+              <h1>
+                {HomeHerosection.title && (
+                  <TypeAnimation
+                    sequence={[
+                      HomeHerosection.title,
+                      1000,
+                      "",
+                      1000,
+                    ]}
+                    speed={50}
+                    repeat={Infinity}
+                  />
+                )}
+              </h1>
+              {/* <p className="business-pera">I am a business enthusiast man</p> */}
               <p>
                 {HomeHerosection.description}
               </p>
@@ -66,7 +85,7 @@ export default function HomeHerobanner() {
                 </div>
                 <div className="image-effect">
                   <img
-                    src={HomeHerosection.imageURL[currentImage]}
+                    src={images[currentImage]}
                     alt={`Image${currentImage + 1}`}
                   />
                 </div>
