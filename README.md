@@ -59,3 +59,7 @@ Hello, beginners! My name is Tushar Vaghasiya.
 - **Header**: Fixed header with navigation links.
 - **Main Content**: Two-column layout with a sidebar for navigation and main content area.
 - **Footer**: Simple footer with contact information and social media links.
+
+
+### Live
+- **(https://tushar-vaghasiya.netlify.app/)**
